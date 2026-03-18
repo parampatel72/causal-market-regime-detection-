@@ -6,11 +6,34 @@
 const API_BASE = import.meta.env?.PROD ? 'https://causal-market-regime-detection.onrender.com' : 'http://localhost:8000';
 
 /**
+ * Fetch with 120 second timeout
+ */
+async function fetchWithTimeout(url, options = {}, timeout = 120000) {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), timeout);
+
+    try {
+        const response = await fetch(url, {
+            ...options,
+            signal: controller.signal,
+        });
+        clearTimeout(timer);
+        return response;
+    } catch (error) {
+        clearTimeout(timer);
+        if (error.name === 'AbortError') {
+            throw new Error('Request Timeout');
+        }
+        throw error;
+    }
+}
+
+/**
  * Generic fetch wrapper with error handling
  */
 async function fetchAPI(endpoint, options = {}) {
     try {
-        const response = await fetch(`${API_BASE}${endpoint}`, {
+        const response = await fetchWithTimeout(`${API_BASE}${endpoint}`, {
             headers: {
                 'Content-Type': 'application/json',
                 ...options.headers,
@@ -49,7 +72,6 @@ export async function fetchAssets() {
 
 /**
  * Get current regime for an asset
- * @param {string} assetId - Asset ID (e.g., 'sp500', 'btc')
  */
 export async function fetchRegime(assetId) {
     return fetchAPI(`/regime/${assetId}`);
@@ -57,7 +79,6 @@ export async function fetchRegime(assetId) {
 
 /**
  * Get probability distribution for an asset
- * @param {string} assetId - Asset ID
  */
 export async function fetchProbabilities(assetId) {
     return fetchAPI(`/probabilities/${assetId}`);
@@ -65,9 +86,6 @@ export async function fetchProbabilities(assetId) {
 
 /**
  * Get Monte Carlo stability analysis
- * @param {string} assetId - Asset ID
- * @param {number} simulations - Number of simulations (default 1000)
- * @param {number} horizon - Horizon in days (default 20)
  */
 export async function fetchMonteCarlo(assetId, simulations = 1000, horizon = 20) {
     return fetchAPI(`/monte-carlo/${assetId}?simulations=${simulations}&horizon=${horizon}`);
@@ -75,7 +93,6 @@ export async function fetchMonteCarlo(assetId, simulations = 1000, horizon = 20)
 
 /**
  * Fetch all data for an asset at once
- * @param {string} assetId - Asset ID
  */
 export async function fetchAllAssetData(assetId) {
     const [regime, probabilities, monteCarlo] = await Promise.all([
@@ -84,11 +101,7 @@ export async function fetchAllAssetData(assetId) {
         fetchMonteCarlo(assetId),
     ]);
 
-    return {
-        regime,
-        probabilities,
-        monteCarlo,
-    };
+    return { regime, probabilities, monteCarlo };
 }
 
 export default {
