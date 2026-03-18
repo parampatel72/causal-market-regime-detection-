@@ -1,0 +1,15 @@
+.beams-container {
+    position: absolute !important;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
+    pointer-events: none;
+    background-color: black;
+}
+
+.beams-container canvas {
+    width: 100% !important;
+    height: 100% !important;
+}
