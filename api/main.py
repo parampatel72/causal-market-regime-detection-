@@ -125,7 +125,14 @@ app = FastAPI(
 # CORS middleware for React frontend
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173", "http://127.0.0.1:5173", "http://localhost:3000"],
+    allow_origins=[
+        "http://localhost:5173",
+        "http://127.0.0.1:5173",
+        "http://localhost:3000",
+        "https://causal-market-regime-detection-2k9a.vercel.app",
+        "https://causal-market-regime-detectio-git-17a2b3-parampatel72s-projects.vercel.app",
+        "https://causal-market-regime-detection-2k9a-rdcge59uo.vercel.app",
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
