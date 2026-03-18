@@ -107,6 +107,33 @@ export const ASSETS_CONFIG = [
         icon: 'repeat',
         description: 'Payment Network'
     },
+    {
+        id: 'xaud',
+        label: 'Gold (XAU/USD)',
+        ticker: 'GC=F',
+        badge: 'Commodity',
+        category: 'commodities',
+        icon: 'circle',
+        description: 'Precious Metal'
+    },
+    {
+        id: 'cl',
+        label: 'Light Crude Oil',
+        ticker: 'CL=F',
+        badge: 'Commodity',
+        category: 'commodities',
+        icon: 'droplet',
+        description: 'Energy Market'
+    },
+    {
+        id: 'us30',
+        label: 'US 30',
+        ticker: '^DJI',
+        badge: 'US Equity',
+        category: 'indices',
+        icon: 'trending-up',
+        description: 'Dow Jones Industrial Average'
+    },
 ];
 
 // Historical data cache
@@ -118,6 +145,9 @@ export const MOCK_HISTORY = {
     'eth': generateHistory(180, 5),
     'sol': generateHistory(180, 6),
     'xrp': generateHistory(180, 7),
+    'xaud': generateHistory(180, 8),
+    'cl': generateHistory(180, 9),
+    'us30': generateHistory(180, 10),
 };
 
 // Current regime snapshot data
@@ -163,6 +193,24 @@ export const MOCK_REGIME_DATA = {
         confidence: 61.4,
         probabilities: { 'Trending': 0.186, 'Range-Bound': 0.614, 'High Volatility': 0.200 },
         stability: { stabilityScore: 62.0, transitionProbability: 38.0, horizonDays: 20, nSimulations: 10000 },
+    },
+    'xaud': {
+        currentRegime: 'Trending',
+        confidence: 75.3,
+        probabilities: { 'Trending': 0.753, 'Range-Bound': 0.147, 'High Volatility': 0.100 },
+        stability: { stabilityScore: 68.5, transitionProbability: 31.5, horizonDays: 20, nSimulations: 10000 },
+    },
+    'cl': {
+        currentRegime: 'High Volatility',
+        confidence: 82.1,
+        probabilities: { 'Trending': 0.100, 'Range-Bound': 0.079, 'High Volatility': 0.821 },
+        stability: { stabilityScore: 50.0, transitionProbability: 50.0, horizonDays: 20, nSimulations: 10000 },
+    },
+    'us30': {
+        currentRegime: 'Trending',
+        confidence: 68.9,
+        probabilities: { 'Trending': 0.689, 'Range-Bound': 0.211, 'High Volatility': 0.100 },
+        stability: { stabilityScore: 70.0, transitionProbability: 30.0, horizonDays: 20, nSimulations: 10000 },
     },
 };
 

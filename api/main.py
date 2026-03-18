@@ -104,6 +104,9 @@ ASSETS = [
     {"id": "eth", "label": "Ethereum", "ticker": "ETH-USD", "badge": "Crypto", "category": "crypto"},
     {"id": "sol", "label": "Solana", "ticker": "SOL-USD", "badge": "Crypto", "category": "crypto"},
     {"id": "xrp", "label": "XRP", "ticker": "XRP-USD", "badge": "Crypto", "category": "crypto"},
+    {"id": "xaud", "label": "Gold (XAU/USD)", "ticker": "GC=F", "badge": "Commodity", "category": "commodities"},
+    {"id": "cl", "label": "Light Crude Oil", "ticker": "CL=F", "badge": "Commodity", "category": "commodities"},
+    {"id": "us30", "label": "US 30", "ticker": "^DJI", "badge": "US Equity", "category": "indices"},
 ]
 
 

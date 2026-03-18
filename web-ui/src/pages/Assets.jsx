@@ -9,7 +9,9 @@ import {
     Zap,
     Repeat,
     ArrowRight,
-    BarChart3
+    BarChart3,
+    CircleDollarSign,
+    Droplet
 } from 'lucide-react';
 import Card from '../components/Card';
 import Badge from '../components/Badge';
@@ -28,6 +30,9 @@ const assetIcons = {
     'eth': Cpu,
     'sol': Zap,
     'xrp': Repeat,
+    'xaud': CircleDollarSign,
+    'cl': Droplet,
+    'us30': TrendingUp,
 };
 
 // Category filters
@@ -35,6 +40,7 @@ const CATEGORIES = [
     { id: 'all', label: 'All Assets' },
     { id: 'indices', label: 'Indices' },
     { id: 'crypto', label: 'Crypto' },
+    { id: 'commodities', label: 'Commodities' },
 ];
 
 /**
