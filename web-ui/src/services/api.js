@@ -3,7 +3,7 @@
  * Centralized API calls to FastAPI backend
  */
 
-const API_BASE = import.meta.env?.PROD ? '/api' : 'http://localhost:8000';
+const API_BASE = import.meta.env?.PROD ? 'https://causal-market-regime-detection.onrender.com' : 'http://localhost:8000';
 
 /**
  * Generic fetch wrapper with error handling
