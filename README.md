@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Causal Market Regime Detection
 
 <div align="center">
@@ -95,3 +96,7 @@ npm run dev
 ## 📄 License
 
 This project is licensed under the MIT License.
+=======
+# causal-market-regime-detection-
+Causal Market Regime Detection is a full-stack platform identifying Bullish, Bearish, Consolidation &amp; High Volatility regimes across Equities and Crypto using causal inference, ML classifiers  and Monte Carlo simulations. 
+>>>>>>> 9d9a0390800f87095b4235cbc0dea1432b64776c
