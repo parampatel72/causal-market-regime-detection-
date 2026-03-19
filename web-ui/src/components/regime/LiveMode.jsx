@@ -10,7 +10,7 @@ import RegimeCard from './RegimeCard';
  * Shows one RegimeCard or a grid of 6 sorted cards.
  */
 
-const API_BASE = import.meta.env?.PROD ? '' : 'http://localhost:8000';
+const API_BASE = import.meta.env?.PROD ? 'https://causal-market-regime-detection.onrender.com' : 'http://localhost:8000';
 
 const ASSETS = [
     { name: 'S&P 500',   ticker: '^GSPC'   },

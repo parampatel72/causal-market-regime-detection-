@@ -10,7 +10,7 @@ import RegimeChart from './RegimeChart';
  * Left: controls panel. Right: results (stat cards + distribution + chart).
  */
 
-const API_BASE = import.meta.env?.PROD ? '' : 'http://localhost:8000';
+const API_BASE = import.meta.env?.PROD ? 'https://causal-market-regime-detection.onrender.com' : 'http://localhost:8000';
 
 const ASSETS = {
     'S&P 500':   '^GSPC',
