@@ -25,6 +25,7 @@ from src.data.features import FeatureEngine
 from src.regime.classifier import RegimeClassifier
 from src.regime.rules import RuleBasedLabeler
 from src.monte_carlo.simulator import MonteCarloSimulator
+from api.regime_tester import router as regime_router
 
 
 # ============================================================================
@@ -130,6 +131,8 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+app.include_router(regime_router, prefix="/api")
 
 
 # ============================================================================

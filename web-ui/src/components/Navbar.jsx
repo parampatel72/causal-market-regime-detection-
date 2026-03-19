@@ -8,7 +8,8 @@ import {
     PlayCircle,
     BookOpen,
     Info,
-    Activity
+    Activity,
+    FlaskConical
 } from 'lucide-react';
 import clsx from 'clsx';
 import SpotlightCard from './SpotlightCard';
@@ -18,6 +19,7 @@ const navItems = [
     { path: '/dashboard', label: 'Dashboard', icon: LayoutDashboard },
     { path: '/assets', label: 'Assets', icon: Layers },
     { path: '/explorer', label: 'Regime Explorer', icon: GitBranch },
+    { path: '/regime-tester', label: 'Regime Tester', icon: FlaskConical },
     { path: '/simulations', label: 'Simulations', icon: PlayCircle },
     { path: '/methodology', label: 'Methodology', icon: BookOpen },
     { path: '/about', label: 'About', icon: Info },
@@ -66,7 +68,7 @@ export default function Navbar() {
                     </div>
 
                     {/* Nav Links - Centered & Responsive */}
-                    <div className="flex items-center gap-1 px-2">
+                    <div className="flex items-center gap-0.5 px-1">
                         {navItems.map((item) => {
                             const isActive = location.pathname === item.path;
                             const Icon = item.icon;
@@ -80,7 +82,7 @@ export default function Navbar() {
                                     <NavLink
                                         to={item.path}
                                         className={clsx(
-                                            'flex items-center gap-2 px-3 py-2 md:px-4 md:py-2.5 text-xs md:text-sm lg:text-base font-medium transition-all duration-200 whitespace-nowrap h-full w-full relative z-10',
+                                            'flex items-center gap-1.5 px-2 py-2 md:px-3 md:py-2.5 text-xs md:text-sm font-medium transition-all duration-200 whitespace-nowrap h-full w-full relative z-10',
                                             isActive
                                                 ? 'text-white bg-white/15 backdrop-blur-sm shadow-lg'
                                                 : 'text-[var(--color-text-muted)] hover:text-white hover:bg-white/5'

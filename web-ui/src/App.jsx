@@ -9,6 +9,7 @@ import Simulations from './pages/Simulations';
 import Methodology from './pages/Methodology';
 import Assets from './pages/Assets';
 import About from './pages/About';
+import RegimeTester from './pages/RegimeTester';
 
 /**
  * App Component
@@ -30,6 +31,7 @@ function App() {
               <Route path="/simulations" element={<Simulations />} />
               <Route path="/methodology" element={<Methodology />} />
               <Route path="/about" element={<About />} />
+              <Route path="/regime-tester" element={<RegimeTester />} />
             </Route>
           </Routes>
         </ErrorBoundary>
